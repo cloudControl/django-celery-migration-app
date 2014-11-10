@@ -1,0 +1,8 @@
+www:
+    type: python
+
+workers:
+    type: python-worker
+
+db:
+    type: postgresql
