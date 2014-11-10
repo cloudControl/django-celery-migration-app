@@ -5,6 +5,7 @@ from celery.task.control import inspect
 
 from minestrone.soup import tasks
 
+
 class JobsView(TemplateView):
     template_name = 'soup/jobs.html'
 
@@ -14,19 +15,20 @@ class JobsView(TemplateView):
             'nodes': inspect().active(),
         }
 
+
 class EditorView(FormView):
 
     class FormAddJob(forms.Form):
         job_name = forms.CharField(
-                max_length=128,
-                required=True,
-                label='Job name:'
+            max_length=128,
+            required=True,
+            label='Job name:'
         )
         routing_key_name = forms.CharField(
-                max_length=128,
-                required=True,
-                label='Routing key name:',
-                initial='default'
+            max_length=128,
+            required=True,
+            label='Routing key name:',
+            initial='default'
         )
 
     template_name = 'soup/editor.html'
